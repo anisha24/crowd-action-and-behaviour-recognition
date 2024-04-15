@@ -1,0 +1,3 @@
+[submodule "crowd11-dataset"]
+	path = crowd11-dataset
+	url = https://github.com/anisha24/crowd11-dataset
