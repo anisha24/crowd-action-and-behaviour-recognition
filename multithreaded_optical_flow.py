@@ -58,15 +58,16 @@ def extract_opticalflow(threadName, list_videos):
          flows.append(flow)
          previous_frame = next_frame
 
-      flow_filename = re.findall("(.*?)\.[ma][pv][4i]", video_name)[0]
+      # flow_filename = re.findall("(.*?)\.[ma][pv][4i]", video_name)[0]
+      flow_filename = re.findall(r"(.*?)\.[ma][pv][4i]", video_name)[0]
       video_flows = np.asarray(flows)
       np.save(crowd11_of_folder + flow_filename, video_flows)
 
       cap.release()
 
 if __name__ == '__main__':
-   crowd11_folder = 'Data/Crowd11-to_process/'
-   crowd11_of_folder = 'Data/Crowd11_OpticalFlow/'
+   crowd11_folder = 'test_Crowd_11/'
+   crowd11_of_folder = 'Crowd11_OpticalFlow/'
    list_videos = os.listdir(crowd11_folder)
    nb_threads = 10
 
