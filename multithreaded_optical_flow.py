@@ -4,6 +4,11 @@ import numpy as np
 import os
 import re
 import random as rd
+import argparse
+
+"""
+Usage: python3 multithreaded_optical_flow.py Crowd-11_split/ Crowd11_OpticalFlow/
+"""
 
 class myThread(th.Thread):
    def __init__(self, name, threadID, chunk):
@@ -66,8 +71,15 @@ def extract_opticalflow(threadName, list_videos):
       cap.release()
 
 if __name__ == '__main__':
-   crowd11_folder = 'test_Crowd_11/'
-   crowd11_of_folder = 'Crowd11_OpticalFlow/'
+   
+   parser = argparse.ArgumentParser(description="Download and save videos from CSV")
+   parser.add_argument("crowd11_folder", help="Dataset folder")
+   parser.add_argument("storage_path", help="Directory to store optical flow maps")
+   args = parser.parse_args()
+
+   crowd11_folder = str(args.crowd11_folder)
+   crowd11_of_folder = str(args.storage_path)
+   
    list_videos = os.listdir(crowd11_folder)
    nb_threads = 10
 
