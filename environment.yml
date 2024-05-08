@@ -186,4 +186,12 @@ dependencies:
   - xz=5.2.6=h166bdaf_0
   - zlib=1.2.13=hd590300_5
   - zstd=1.5.5=hfc55251_0
-prefix: /root/anaconda3/envs/crowd
+  - pip:
+      - asgiref==3.8.1
+      - dill==0.3.8
+      - django==5.0.4
+      - multiprocess==0.70.16
+      - natsort==8.4.0
+      - sk-video==1.1.10
+      - sqlparse==0.5.0
+prefix: /home/anish_a24/anaconda3/envs/crowd
